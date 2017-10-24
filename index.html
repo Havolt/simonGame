@@ -13,7 +13,7 @@
     #app{
       width: 540px;
       height: 540px;
-      border: 3px solid black;
+      border: 6px solid black;
       border-radius: 50%;
       overflow: hidden;
     }
@@ -51,9 +51,34 @@
     }
 
     .bigButton{
-      width: 270px;
-      height: 270px;
+      width: 267px;
+      height: 267px;
+      border: 3px solid black;
       float: left;
+    }
+
+    #greenButton{
+      border-left: 0px;
+      border-top: 0px;
+      background-color: #028400;
+    }
+
+    #redButton{
+      border-right: 0px;
+      border-top: 0px;
+      background-color: #c10000;
+    }
+
+    #yellowButton{
+      border-left: 0px;
+      border-bottom: 0px;
+      background-color: #efe74c;
+    }
+
+    #blueButton{
+      border-right: 0px;
+      border-bottom: 0px;
+      background-color: #4786ed;
     }
 
 
@@ -140,22 +165,18 @@
       const greenButt = document.createElement('div');
       greenButt.id = "greenButton"
       greenButt.classList="bigButton";
-      greenButt.style.backgroundColor="#028400";
       app.appendChild(greenButt);
       const redButt = document.createElement('div');
       redButt.id = "redButton";
       redButt.classList="bigButton";
-      redButt.style.backgroundColor="#c10000";
       app.appendChild(redButt);
       const yellowButt = document.createElement('div');
       yellowButt.id = "yellowButton";
       yellowButt.classList="bigButton";
-      yellowButt.style.backgroundColor="#efe74c";
       app.appendChild(yellowButt);
       const blueButt = document.createElement('div');
       blueButt.id = "blueButton";
       blueButt.classList="bigButton";
-      blueButt.style.backgroundColor="#4786ed";
       app.appendChild(blueButt);
     }
 
