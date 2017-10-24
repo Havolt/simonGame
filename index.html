@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Simon Game</title>
+    <style>
+
+    body, html{
+      font-family: arial;
+      background-color: #f7f7f7;
+    }
+
+    #app{
+      width: 540px;
+      height: 540px;
+      border: 2px solid black;
+    }
+
+    #strictContainer{
+      width: 110px;
+      height: 40px;
+      background-color: #041126;
+    }
+
+    #strictSwitchOff{
+      margin-left: 4px;
+    }
+
+    #strictSwitchOn{
+      margin-right: 4px;
+    }
+
+    h5{
+      margin: 14px 3px;
+    }
+
+    .strictSwitchClass{
+      background-color: white;
+      width: 20px;
+      height: 20px;
+      margin-top: 10px;
+      float: left;
+    }
+
+    .strictSwitchClass:hover{
+      cursor: pointer;
+    }
+
+
+    </style>
+  </head>
+  <body>
+
+    <div id="app"></div>
+
+
+    <script>
+
+    const app = document.getElementById('app');
+    const soundOne = new Audio('https://s3.amazonaws.com/freecodecamp/simonSound1.mp3');
+    const soundTwo = new Audio('https://s3.amazonaws.com/freecodecamp/simonSound2.mp3');
+    const soundThree = new Audio('https://s3.amazonaws.com/freecodecamp/simonSound3.mp3');
+    const soundFour = new Audio('https://s3.amazonaws.com/freecodecamp/simonSound4.mp3');
+
+    let strictSwitchOff;
+    let strictSwitchOn;
+    let strictContainer;
+    let strictBool = false;
+
+    function strictMode(){
+      strictBool = !strictBool;
+    }
+
+    function strictButtonMaker(){
+      const strictContain = document.createElement('div');
+      strictContain.id="strictContainer";
+      strictContainer = document.getElementById('strictContainer');
+      app.appendChild(strictContain);
+      const strictHeadOff = document.createElement('h5');
+      strictHeadOff.style.display="inline-block"
+      strictHeadOff.style.float="left";
+      strictHeadOff.style.color="white";
+      strictHeadOff.innerHTML="OFF";
+      strictContain.appendChild(strictHeadOff)
+      const strictSwitchOffDiv = document.createElement('div');
+      strictSwitchOffDiv.id = "strictSwitchOff";
+      strictSwitchOffDiv.classList="strictSwitchClass"
+      strictSwitchOffDiv.style.backgroundColor="#5280c9";
+
+      strictContain.appendChild(strictSwitchOffDiv);
+      const strictSwitchOnDiv = document.createElement('div');
+      strictSwitchOnDiv.id = "strictSwitchOn";
+      strictSwitchOnDiv.classList="strictSwitchClass"
+
+      strictContain.appendChild(strictSwitchOnDiv);
+      const strictHeadOn = document.createElement('h5');
+      strictHeadOn.style.display="inline-block"
+      strictHeadOn.style.float="left";
+      strictHeadOn.style.color="white";
+      strictHeadOn.innerHTML="ON";
+      strictContain.appendChild(strictHeadOn)
+      strictSwitchOnDiv.addEventListener('click', strictSwitchChange);
+      strictSwitchOffDiv.addEventListener('click', strictSwitchChange);
+    }
+
+    function strictSwitchChange(){
+      if(!strictBool){
+        strictSwitchOn.style.backgroundColor="#5280c9";
+        strictSwitchOff.style.backgroundColor="white";
+        strictBool = !strictBool;
+      }
+      else{
+        strictSwitchOn.style.backgroundColor="white";
+        strictSwitchOff.style.backgroundColor="#5280c9";
+        strictBool = !strictBool;
+      }
+    }
+
+    function idAssigners(){
+      strictSwitchOff = document.getElementById('strictSwitchOff');
+      strictSwitchOn = document.getElementById('strictSwitchOn');
+
+    }
+
+
+
+    (function init(){
+      strictButtonMaker();
+      idAssigners();
+    })();
+
+
+
+
+    </script>
+
+  </body>
+</html>
