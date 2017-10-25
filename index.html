@@ -107,6 +107,15 @@
       font-family: 'Cutive Mono', monospace;
     }
 
+    #startButton{
+      border: 2px solid black;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: #a81212;
+      box-shadow: 2px 2px 2px black;
+    }
+
 
     </style>
   </head>
@@ -133,6 +142,7 @@
     let blueButton;
     let yellowButton;
     let pressCounter;
+    let startButton;
 
     // Strict Switch Section //
 
@@ -245,8 +255,25 @@
       countText.style.position="relative";
       countText.style.top="-36px";
       countText.style.left="1px";
-
       countDiv.appendChild(countText);
+
+      //Start Button
+      const startButtDiv = document.createElement('div');
+      startButtDiv.style.height="60px";
+      startButtDiv.style.width="70px";
+      startButtDiv.style.position="absolute";
+      startButtDiv.style.left="170px";
+      startButtDiv.style.top="140px";
+      centerPart.appendChild(startButtDiv);
+      const startButtButton = document.createElement('div');
+      startButtButton.id="startButton";
+      startButtDiv.appendChild(startButtButton);
+      const startButtText = document.createElement('h4');
+      startButtText.innerHTML="START/RESET";
+      startButtText.style.position="relative";
+      startButtText.style.top="-22px";
+      startButtText.style.left="-30px";
+      startButtDiv.appendChild(startButtText);
     }
 
     //Ending Center Piece Creator
@@ -265,6 +292,7 @@
       blueButton = document.getElementById('blueButton');
       centerPiece = document.getElementById('centerId');
       pressCounter = document.getElementById('pressCounter');
+      startButton = document.getElementById('startButton');
     }
 
 
