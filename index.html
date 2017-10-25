@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Simon Game</title>
+    <link href="https://fonts.googleapis.com/css?family=Cutive+Mono" rel="stylesheet">
     <style>
 
     body, html{
@@ -97,6 +98,15 @@
       left: 114px;
     }
 
+    #pressCounter{
+      color: #a81212;
+      float: right;
+      font-size: 2.7em;
+      margin-top: -4px;
+      margin-right: 5px;
+      font-family: 'Cutive Mono', monospace;
+    }
+
 
     </style>
   </head>
@@ -122,6 +132,7 @@
     let redButton;
     let blueButton;
     let yellowButton;
+    let pressCounter;
 
     // Strict Switch Section //
 
@@ -216,6 +227,26 @@
       centerPart.appendChild(simonTitle);
 
       //Counter
+      const countDiv = document.createElement('div');
+      countDiv.style.backgroundColor="black";
+      countDiv.style.width="60px";
+      countDiv.style.height="40px";
+      countDiv.style.position="absolute";
+      countDiv.style.borderRadius="10%";
+      countDiv.style.left="65px";
+      countDiv.style.top="140px";
+      centerPart.appendChild(countDiv);
+      const countDivNum = document.createElement('h2');
+      countDivNum.innerHTML=0;
+      countDivNum.id="pressCounter";
+      countDiv.appendChild(countDivNum);
+      const countText = document.createElement('h4');
+      countText.innerHTML="COUNT";
+      countText.style.position="relative";
+      countText.style.top="-36px";
+      countText.style.left="1px";
+
+      countDiv.appendChild(countText);
     }
 
     //Ending Center Piece Creator
@@ -233,6 +264,7 @@
       yellowButton = document.getElementById('yellowButton');
       blueButton = document.getElementById('blueButton');
       centerPiece = document.getElementById('centerId');
+      pressCounter = document.getElementById('pressCounter');
     }
 
 
@@ -243,7 +275,6 @@
       createCenter();
       idAssigners();
     })();
-
 
 
 
