@@ -16,13 +16,17 @@
       border: 6px solid black;
       border-radius: 50%;
       overflow: hidden;
+      margin: 0 auto;
     }
 
     #strictContainer{
       width: 110px;
       height: 40px;
+      left: 80px;
+      top: 100px;
       background-color: #041126;
       position: absolute;
+      z-index: 101;
 
     }
 
@@ -81,6 +85,18 @@
       background-color: #4786ed;
     }
 
+    #centerId{
+      width: 300px;
+      height: 300px;
+      background-color: white;
+      border: 4px solid black;
+      border-radius: 50%;
+      z-index: 1000;
+      position: relative;
+      top: 114px;
+      left: 114px;
+    }
+
 
     </style>
   </head>
@@ -98,6 +114,7 @@
     const soundFour = new Audio('https://s3.amazonaws.com/freecodecamp/simonSound4.mp3');
 
     let strictSwitchOff;
+    let centerPiece;
     let strictSwitchOn;
     let strictContainer;
     let strictBool = false;
@@ -180,6 +197,34 @@
       app.appendChild(blueButt);
     }
 
+    // End Create Color Button
+
+    //Creating Center Piece
+
+    function createCenter(){
+      const centerPart = document.createElement('div');
+      centerPart.id="centerId";
+      app.appendChild(centerPart);
+
+      //Title
+      const simonTitle = document.createElement('h1');
+      simonTitle.innerHTML="Simon";
+      simonTitle.style.fontSize="4em";
+      simonTitle.style.position="absolute";
+      simonTitle.style.left="55px";
+      simonTitle.style.top="5px";
+      centerPart.appendChild(simonTitle);
+
+      //Counter
+    }
+
+    //Ending Center Piece Creator
+
+    //Create Internal Center Options
+
+
+    //Ending Creating Internal Center Options
+
     function idAssigners(){
       strictSwitchOff = document.getElementById('strictSwitchOff');
       strictSwitchOn = document.getElementById('strictSwitchOn');
@@ -187,6 +232,7 @@
       redButton = document.getElementById('redButton');
       yellowButton = document.getElementById('yellowButton');
       blueButton = document.getElementById('blueButton');
+      centerPiece = document.getElementById('centerId');
     }
 
 
@@ -194,6 +240,7 @@
     (function init(){
       strictButtonMaker();
       createButtons();
+      createCenter();
       idAssigners();
     })();
 
