@@ -23,8 +23,8 @@
     #strictContainer{
       width: 110px;
       height: 40px;
-      left: 80px;
-      top: 100px;
+      left: 90px;
+      top: 210px;
       background-color: #041126;
       position: absolute;
       z-index: 101;
@@ -150,37 +150,6 @@
       strictBool = !strictBool;
     }
 
-    function strictButtonMaker(){
-      const strictContain = document.createElement('div');
-      strictContain.id="strictContainer";
-      strictContainer = document.getElementById('strictContainer');
-      app.appendChild(strictContain);
-      const strictHeadOff = document.createElement('h5');
-      strictHeadOff.style.display="inline-block"
-      strictHeadOff.style.float="left";
-      strictHeadOff.style.color="white";
-      strictHeadOff.innerHTML="OFF";
-      strictContain.appendChild(strictHeadOff)
-      const strictSwitchOffDiv = document.createElement('div');
-      strictSwitchOffDiv.id = "strictSwitchOff";
-      strictSwitchOffDiv.classList="strictSwitchClass"
-      strictSwitchOffDiv.style.backgroundColor="#5280c9";
-
-      strictContain.appendChild(strictSwitchOffDiv);
-      const strictSwitchOnDiv = document.createElement('div');
-      strictSwitchOnDiv.id = "strictSwitchOn";
-      strictSwitchOnDiv.classList="strictSwitchClass"
-
-      strictContain.appendChild(strictSwitchOnDiv);
-      const strictHeadOn = document.createElement('h5');
-      strictHeadOn.style.display="inline-block"
-      strictHeadOn.style.float="left";
-      strictHeadOn.style.color="white";
-      strictHeadOn.innerHTML="ON";
-      strictContain.appendChild(strictHeadOn)
-      strictSwitchOnDiv.addEventListener('click', strictSwitchChange);
-      strictSwitchOffDiv.addEventListener('click', strictSwitchChange);
-    }
 
     function strictSwitchChange(){
       if(!strictBool){
@@ -274,6 +243,46 @@
       startButtText.style.top="-22px";
       startButtText.style.left="-30px";
       startButtDiv.appendChild(startButtText);
+
+
+
+      //Strict Button
+      const strictContain = document.createElement('div');
+      strictContain.id="strictContainer";
+      strictContainer = document.getElementById('strictContainer');
+      centerPart.appendChild(strictContain);
+      const strictHeadOff = document.createElement('h5');
+      strictHeadOff.style.display="inline-block"
+      strictHeadOff.style.float="left";
+      strictHeadOff.style.color="white";
+      strictHeadOff.innerHTML="OFF";
+      strictContain.appendChild(strictHeadOff)
+      const strictSwitchOffDiv = document.createElement('div');
+      strictSwitchOffDiv.id = "strictSwitchOff";
+      strictSwitchOffDiv.classList="strictSwitchClass"
+      strictSwitchOffDiv.style.backgroundColor="#5280c9";
+
+      strictContain.appendChild(strictSwitchOffDiv);
+      const strictSwitchOnDiv = document.createElement('div');
+      strictSwitchOnDiv.id = "strictSwitchOn";
+      strictSwitchOnDiv.classList="strictSwitchClass"
+
+      strictContain.appendChild(strictSwitchOnDiv);
+      const strictHeadOn = document.createElement('h5');
+      strictHeadOn.style.display="inline-block"
+      strictHeadOn.style.float="left";
+      strictHeadOn.style.color="white";
+      strictHeadOn.innerHTML="ON";
+      strictContain.appendChild(strictHeadOn)
+      strictSwitchOnDiv.addEventListener('click', strictSwitchChange);
+      strictSwitchOffDiv.addEventListener('click', strictSwitchChange);
+
+      const strictButtText = document.createElement('h4');
+      strictButtText.innerHTML="STRICT&nbsp;MODE";
+      strictButtText.style.position="relative";
+      strictButtText.style.top="2px";
+      strictButtText.style.left="-1px";
+      strictContain.appendChild(strictButtText);
     }
 
     //Ending Center Piece Creator
@@ -298,7 +307,6 @@
 
 
     (function init(){
-      strictButtonMaker();
       createButtons();
       createCenter();
       idAssigners();
