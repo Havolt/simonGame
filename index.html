@@ -330,6 +330,7 @@
     }
 
     function comTurn(){
+      console.log('yup');
       playerTurnTrue = false;
       currSaysArr.push(totalSaysArr[pressRunner]);
       pressRunner++;
@@ -372,7 +373,9 @@
             redButton.addEventListener('click', function(){playerTurn(1)});
             yellowButton.addEventListener('click', function(){playerTurn(2)});
             blueButton.addEventListener('click', function(){playerTurn(3)});
-            prevSaysArr = currSaysArr;
+            for(var i = 0; i < currSaysArr.length; i++){
+              prevSaysArr.push(currSaysArr[i]);
+            }
           }
           }, i * 1200);
         })(i);
@@ -381,8 +384,10 @@
     }
 
     function playerTurn(num){
+      let countdown = 20;
       console.log(num);
       if(num == prevSaysArr[0]){
+        countdown--;
         if(num == 0){
           greenButton.style.backgroundColor="#23ff27";
           soundOne.play();
@@ -405,9 +410,13 @@
         }
         prevSaysArr.shift();
         console.log(prevSaysArr);
-        if(prevSaysArr[0] == undefined){
+        if(countdown == 1){
           setTimeout(function(){alert('You Win')},200);
         }
+        if(prevSaysArr[0] == undefined){
+          setTimeout(comTurn, 900);
+        }
+
       }
     }
 
