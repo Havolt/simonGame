@@ -77,13 +77,13 @@
     #yellowButton{
       border-left: 0px;
       border-bottom: 0px;
-      background-color: #efe74c;
+      background-color: #b5b52b;
     }
 
     #blueButton{
       border-right: 0px;
       border-bottom: 0px;
-      background-color: #4786ed;
+      background-color: #2255a5;
     }
 
     #centerId{
@@ -305,6 +305,7 @@
     let simonOn = false;
     let pressCounterNum = 0;
     let pressRunner = 0;
+    let buttonRunner;
 
     function makeSaysList(){
       totalSaysArr = [];
@@ -332,10 +333,32 @@
       pressRunner++;
 
 
+
       if(pressRunner < 7){
-        for(var i = 1; i <= 3; i++) {
+        buttonRunner = 0;
+        for(var i = 0; i <= 3; i++) {
+
           (function() {
-          setTimeout(function() { alert('hello'); }, i * 1000);
+          setTimeout(function() {
+            console.log(buttonRunner);
+          if(totalSaysArr[buttonRunner] == 0){
+            greenButton.style.backgroundColor="#23ff27";
+            console.log('green');
+          }
+          else if(totalSaysArr[buttonRunner] == 1){
+            redButton.style.backgroundColor="red";
+            console.log('red');
+          }
+          else if(totalSaysArr[buttonRunner] == 2){
+            yellowButton.style.backgroundColor="#fff263";
+            console.log('yellow');
+          }
+          else if(totalSaysArr[buttonRunner] == 3){
+            blueButton.style.backgroundColor="#609bf7";
+            console.log('blue');
+          }
+          buttonRunner++;
+          }, i * 1000);
         })(i);
       }
 }
