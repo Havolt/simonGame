@@ -287,10 +287,23 @@
 
     //Ending Center Piece Creator
 
-    //Create Internal Center Options
+    //Simon Make Playable Functions
+
+    let totalSaysArr = [];
+    let prevSaysArr = [];
+    let currSaysArr = [];
+
+    function makeSaysList(){
+      for(var i = 0; i < 20; i++){
+        const randSay = Math.floor(Math.random()*4);
+        totalSaysArr.push(randSay);
+      }
+    }
 
 
-    //Ending Creating Internal Center Options
+
+
+    //End Simon Make PLayable Functions
 
     function idAssigners(){
       strictSwitchOff = document.getElementById('strictSwitchOff');
@@ -310,7 +323,10 @@
       createButtons();
       createCenter();
       idAssigners();
+      makeSaysList();
     })();
+
+    console.log(totalSaysArr);
 
 
 
