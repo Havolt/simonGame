@@ -14,7 +14,7 @@
     #app{
       width: 540px;
       height: 540px;
-      border: 6px solid black;
+      border: 10px solid black;
       border-radius: 50%;
       overflow: hidden;
       margin: 0 auto;
@@ -361,7 +361,7 @@
       blueButton.removeEventListener('click', function(){playerTurn(3); });
       */
 
-      if(pressRunner < 7){
+      if(pressRunner < 8){
         const time = 600;
         buttonRunner = 0;
         for(var i = 0; i < currSaysArr.length; i++) {
@@ -443,6 +443,50 @@
           setTimeout(comTurn, 900);
         }
 
+      }
+      else{
+        (function(){
+          greenButton.style.backgroundColor="#23ff27";
+          soundOne.play();
+          setTimeout(function(){greenButton.style.backgroundColor="#028400"}, 400);
+          redButton.style.backgroundColor="red";
+          soundTwo.play();
+          setTimeout(function(){redButton.style.backgroundColor="#c10000"}, 400);
+          yellowButton.style.backgroundColor="#ffff68";
+          soundThree.play();
+          setTimeout(function(){yellowButton.style.backgroundColor="#b5b52b"}, 400);
+          blueButton.style.backgroundColor="#609bf7";
+          soundFour.play();
+          setTimeout(function(){blueButton.style.backgroundColor="#2255a5"}, 400);
+          setTimeout(function(){greenButton.style.backgroundColor="#23ff27";
+          soundOne.play();
+          setTimeout(function(){greenButton.style.backgroundColor="#028400"}, 400);
+          redButton.style.backgroundColor="red";
+          soundTwo.play();
+          setTimeout(function(){redButton.style.backgroundColor="#c10000"}, 400);
+          yellowButton.style.backgroundColor="#ffff68";
+          soundThree.play();
+          setTimeout(function(){yellowButton.style.backgroundColor="#b5b52b"}, 400);
+          blueButton.style.backgroundColor="#609bf7";
+          soundFour.play();
+          setTimeout(function(){blueButton.style.backgroundColor="#2255a5"}, 400);}, 600)
+          setTimeout(function(){
+            greenButton.style.backgroundColor="#23ff27";
+            soundOne.play();
+            setTimeout(function(){greenButton.style.backgroundColor="#028400"}, 400);
+            redButton.style.backgroundColor="red";
+            soundTwo.play();
+            setTimeout(function(){redButton.style.backgroundColor="#c10000"}, 400);
+            yellowButton.style.backgroundColor="#ffff68";
+            soundThree.play();
+            setTimeout(function(){yellowButton.style.backgroundColor="#b5b52b"}, 400);
+            blueButton.style.backgroundColor="#609bf7";
+            soundFour.play();
+            setTimeout(function(){blueButton.style.backgroundColor="#2255a5"}, 400);},1200)
+        }
+        )()
+
+        setTimeout(function(){console.log('work beings here')},1800)
       }
 
     }
