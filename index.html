@@ -116,6 +116,15 @@
       box-shadow: 2px 2px 2px black;
     }
 
+    #startButton:hover{
+      cursor: pointer;
+    }
+
+    #startButton:active{
+      background-color: #7a0c0c;
+      box-shadow: 1px 1px 1px black;
+    }
+
 
     </style>
   </head>
@@ -216,7 +225,7 @@
       countDiv.style.top="140px";
       centerPart.appendChild(countDiv);
       const countDivNum = document.createElement('h2');
-      countDivNum.innerHTML=0;
+      countDivNum.innerHTML="--";
       countDivNum.id="pressCounter";
       countDiv.appendChild(countDivNum);
       const countText = document.createElement('h4');
@@ -292,13 +301,30 @@
     let totalSaysArr = [];
     let prevSaysArr = [];
     let currSaysArr = [];
+    let playerSaysArr = [];
+    let simonOn = false;
+    let pressCounterNum = 0;
 
     function makeSaysList(){
+      totalSaysArr = [];
       for(var i = 0; i < 20; i++){
         const randSay = Math.floor(Math.random()*4);
         totalSaysArr.push(randSay);
       }
     }
+
+    function mainGame(){
+      if(simonOn == false){
+        simonOn = true;
+        pressCounter.innerHTML=pressCounterNum;
+      }
+      else{
+        pressCounter = 0;
+        makeSaysList();
+        console.log(totalSaysArr);
+      }
+    }
+
 
 
 
@@ -325,6 +351,8 @@
       idAssigners();
       makeSaysList();
     })();
+
+    startButton.addEventListener('click', mainGame);
 
     console.log(totalSaysArr);
 
