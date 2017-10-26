@@ -304,6 +304,7 @@
     let playerSaysArr = [];
     let simonOn = false;
     let pressCounterNum = 0;
+    let pressRunner = 0;
 
     function makeSaysList(){
       totalSaysArr = [];
@@ -317,12 +318,27 @@
       if(simonOn == false){
         simonOn = true;
         pressCounter.innerHTML=pressCounterNum;
+        setTimeout(comTurn, 500);
       }
       else{
         pressCounter = 0;
         makeSaysList();
         console.log(totalSaysArr);
       }
+    }
+
+    function comTurn(){
+      currSaysArr.push(totalSaysArr[pressRunner]);
+      pressRunner++;
+
+
+      if(pressRunner < 7){
+        for(var i = 1; i <= 3; i++) {
+          (function() {
+          setTimeout(function() { alert('hello'); }, i * 1000);
+        })(i);
+      }
+}
     }
 
 
