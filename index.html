@@ -302,11 +302,13 @@
     let prevSaysArr = [];
     let currSaysArr = [];
     let playerSaysArr = [];
+    let prevSaysArrBackup = [];
     let simonOn = false;
     let pressCounterNum = 0;
     let pressRunner = 0;
     let buttonRunner;
     let playerTurnTrue = false;
+    let usedSaysArr = [];
 
     function makeSaysList(){
       totalSaysArr = [];
@@ -374,7 +376,9 @@
             yellowButton.addEventListener('click', function(){playerTurn(2)});
             blueButton.addEventListener('click', function(){playerTurn(3)});
             for(var i = 0; i < currSaysArr.length; i++){
+
               prevSaysArr.push(currSaysArr[i]);
+              prevSaysArrBackup.push(currSaysArr[i]);
             }
           }
           }, i * 1200);
@@ -385,9 +389,11 @@
 
     function playerTurn(num){
       let countdown = 20;
+
       console.log(num);
       if(num == prevSaysArr[0]){
         countdown--;
+
         if(num == 0){
           greenButton.style.backgroundColor="#23ff27";
           soundOne.play();
@@ -408,16 +414,22 @@
           soundFour.play();
           setTimeout(function(){blueButton.style.backgroundColor="#2255a5"}, 400);
         }
+        if(prevSaysArr.length == 1){
+          usedSaysArr.push(prevSaysArr[0]);
+        }
         prevSaysArr.shift();
         console.log(prevSaysArr);
         if(countdown == 1){
           setTimeout(function(){alert('You Win')},200);
         }
         if(prevSaysArr[0] == undefined){
+          pressCounterNum++;
+          pressCounter.innerHTML=pressCounterNum;
           setTimeout(comTurn, 900);
         }
 
       }
+
     }
 
 
