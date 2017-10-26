@@ -299,6 +299,8 @@
       strictButtText.style.top="2px";
       strictButtText.style.left="-1px";
       strictContain.appendChild(strictButtText);
+
+
     }
 
     //Ending Center Piece Creator
@@ -315,11 +317,15 @@
     let pressRunner = 0;
     let buttonRunner;
     let playerTurnTrue = false;
+    let playPress = 0;
 
     let greenPressed = 0;
     let redPressed = 0;
     let yellowPressed = 0;
     let bluePressed = 0;
+
+    //Debug lets
+    let timesFuncCalled = 0;
 
     function makeSaysList(){
       totalSaysArr = [];
@@ -343,10 +349,17 @@
     }
 
     function comTurn(){
-      console.log('yup');
+
       playerTurnTrue = false;
       currSaysArr.push(totalSaysArr[pressRunner]);
+
       pressRunner++;
+      /*
+      greenButton.removeEventListener('click', function(){playerTurn(0); });
+      redButton.removeEventListener('click', function(){playerTurn(1); });
+      yellowButton.removeEventListener('click', function(){playerTurn(2); });
+      blueButton.removeEventListener('click', function(){playerTurn(3); });
+      */
 
       if(pressRunner < 7){
         const time = 600;
@@ -355,7 +368,6 @@
 
           (function() {
           setTimeout(function() {
-            console.log(buttonRunner);
           if(currSaysArr[buttonRunner] == 0){
             greenButton.style.backgroundColor="#23ff27";
             soundOne.play();
@@ -382,10 +394,6 @@
           }
           buttonRunner++;
           if(buttonRunner == currSaysArr.length){
-            greenButton.addEventListener('click', function(){playerTurn(0)});
-            redButton.addEventListener('click', function(){playerTurn(1)});
-            yellowButton.addEventListener('click', function(){playerTurn(2)});
-            blueButton.addEventListener('click', function(){playerTurn(3)});
             for(var i = 0; i < currSaysArr.length; i++){
               prevSaysArr.push(currSaysArr[i]);
               prevSaysArrBackup.push(currSaysArr[i]);
@@ -398,9 +406,9 @@
     }
 
     function playerTurn(num){
+      timesFuncCalled++;
+      console.log(timesFuncCalled);
       let countdown = 0;
-
-      console.log(num);
       if(num == prevSaysArr[0] ){
         countdown++;
 
@@ -425,12 +433,11 @@
           setTimeout(function(){blueButton.style.backgroundColor="#2255a5"}, 400);
         }
         prevSaysArr.shift();
-        console.log(prevSaysArr);
+        //console.log(prevSaysArr);
         if(countdown == 19){
           setTimeout(function(){alert('You Win')},200);
         }
         if(prevSaysArr[0] == undefined){
-          //This is where we target the bug
           pressCounterNum++;
           pressCounter.innerHTML=pressCounterNum;
           setTimeout(comTurn, 900);
@@ -464,6 +471,10 @@
       createCenter();
       idAssigners();
       makeSaysList();
+      greenButton.addEventListener('click', function(){playerTurn(0); playPress++;});
+      redButton.addEventListener('click', function(){playerTurn(1); playPress++;});
+      yellowButton.addEventListener('click', function(){playerTurn(2); playPress++;});
+      blueButton.addEventListener('click', function(){playerTurn(3); playPress++;});
     })();
 
     startButton.addEventListener('click', mainGame);
