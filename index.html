@@ -319,7 +319,7 @@
       if(simonOn == false){
         simonOn = true;
         pressCounter.innerHTML=pressCounterNum;
-        setTimeout(comTurn, 500);
+        setTimeout(comTurn, 800);
       }
       else{
         pressCounter = 0;
@@ -336,29 +336,37 @@
 
       if(pressRunner < 7){
         buttonRunner = 0;
-        for(var i = 0; i <= 3; i++) {
+        for(var i = 0; i < totalSaysArr.length; i++) {
 
           (function() {
           setTimeout(function() {
             console.log(buttonRunner);
           if(totalSaysArr[buttonRunner] == 0){
             greenButton.style.backgroundColor="#23ff27";
+            soundOne.play();
             console.log('green');
+            setTimeout(function(){greenButton.style.backgroundColor="#028400"}, 600);
           }
           else if(totalSaysArr[buttonRunner] == 1){
             redButton.style.backgroundColor="red";
+            soundTwo.play();
             console.log('red');
+            setTimeout(function(){redButton.style.backgroundColor="#c10000"}, 600);
           }
           else if(totalSaysArr[buttonRunner] == 2){
-            yellowButton.style.backgroundColor="#fff263";
+            yellowButton.style.backgroundColor="#ffff68";
             console.log('yellow');
+            soundThree.play();
+            setTimeout(function(){yellowButton.style.backgroundColor="#b5b52b"}, 600);
           }
           else if(totalSaysArr[buttonRunner] == 3){
             blueButton.style.backgroundColor="#609bf7";
+            soundFour.play();
             console.log('blue');
+            setTimeout(function(){blueButton.style.backgroundColor="#2255a5"}, 600);
           }
           buttonRunner++;
-          }, i * 1000);
+          }, i * 1200);
         })(i);
       }
 }
