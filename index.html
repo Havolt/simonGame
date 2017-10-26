@@ -133,7 +133,14 @@
     <div id="app"></div>
 
 
+
+
+
     <script>
+
+    /*Need to put code at eventListener of buttons that will stop it from being called by itself when
+      two of the same button are in the array in a row.
+    */
 
     const app = document.getElementById('app');
     const soundOne = new Audio('https://s3.amazonaws.com/freecodecamp/simonSound1.mp3');
@@ -308,7 +315,11 @@
     let pressRunner = 0;
     let buttonRunner;
     let playerTurnTrue = false;
-    let usedSaysArr = [];
+
+    let greenPressed = 0;
+    let redPressed = 0;
+    let yellowPressed = 0;
+    let bluePressed = 0;
 
     function makeSaysList(){
       totalSaysArr = [];
@@ -376,7 +387,6 @@
             yellowButton.addEventListener('click', function(){playerTurn(2)});
             blueButton.addEventListener('click', function(){playerTurn(3)});
             for(var i = 0; i < currSaysArr.length; i++){
-
               prevSaysArr.push(currSaysArr[i]);
               prevSaysArrBackup.push(currSaysArr[i]);
             }
@@ -388,11 +398,11 @@
     }
 
     function playerTurn(num){
-      let countdown = 20;
+      let countdown = 0;
 
       console.log(num);
-      if(num == prevSaysArr[0]){
-        countdown--;
+      if(num == prevSaysArr[0] ){
+        countdown++;
 
         if(num == 0){
           greenButton.style.backgroundColor="#23ff27";
@@ -414,15 +424,13 @@
           soundFour.play();
           setTimeout(function(){blueButton.style.backgroundColor="#2255a5"}, 400);
         }
-        if(prevSaysArr.length == 1){
-          usedSaysArr.push(prevSaysArr[0]);
-        }
         prevSaysArr.shift();
         console.log(prevSaysArr);
-        if(countdown == 1){
+        if(countdown == 19){
           setTimeout(function(){alert('You Win')},200);
         }
         if(prevSaysArr[0] == undefined){
+          //This is where we target the bug
           pressCounterNum++;
           pressCounter.innerHTML=pressCounterNum;
           setTimeout(comTurn, 900);
