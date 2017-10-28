@@ -138,9 +138,7 @@
 
     <script>
 
-    /*Need to put code at eventListener of buttons that will stop it from being called by itself when
-      two of the same button are in the array in a row.
-    */
+
 
     const app = document.getElementById('app');
     const soundOne = new Audio('https://s3.amazonaws.com/freecodecamp/simonSound1.mp3');
@@ -323,6 +321,7 @@
     let redPressed = 0;
     let yellowPressed = 0;
     let bluePressed = 0;
+    let playerFail = false;
 
     //Debug lets
     let timesFuncCalled = 0;
@@ -352,18 +351,13 @@
 
       playerTurnTrue = false;
       currSaysArr.push(totalSaysArr[pressRunner]);
-
       pressRunner++;
-      /*
-      greenButton.removeEventListener('click', function(){playerTurn(0); });
-      redButton.removeEventListener('click', function(){playerTurn(1); });
-      yellowButton.removeEventListener('click', function(){playerTurn(2); });
-      blueButton.removeEventListener('click', function(){playerTurn(3); });
-      */
+
 
       if(pressRunner < 8){
         const time = 600;
         buttonRunner = 0;
+        console.log(currSaysArr);
         for(var i = 0; i < currSaysArr.length; i++) {
 
           (function() {
@@ -394,6 +388,7 @@
           }
           buttonRunner++;
           if(buttonRunner == currSaysArr.length){
+            prevSaysArrBackup = [];
             for(var i = 0; i < currSaysArr.length; i++){
               prevSaysArr.push(currSaysArr[i]);
               prevSaysArrBackup.push(currSaysArr[i]);
@@ -403,6 +398,10 @@
         })(i);
       }
       }
+    }
+
+    function playFail(){
+
     }
 
     function playerTurn(num){
@@ -485,8 +484,12 @@
             setTimeout(function(){blueButton.style.backgroundColor="#2255a5"}, 400);},1200)
         }
         )()
+        prevSaysArr = currSaysArr;
+        setTimeout(playFail, 2000);
 
-        setTimeout(function(){console.log('work beings here')},1800)
+
+
+        setTimeout(function(){console.log('work begins here')},1800)
       }
 
     }
