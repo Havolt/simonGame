@@ -402,13 +402,51 @@
 
     function playFail(){
       prevSaysArr = [];
-      let Time = 600;
       for(var i =0; i < prevSaysArrBackup.length; i++){
         prevSaysArr.push(prevSaysArrBackup[i]);
       }
       for(var i = 0; i < prevSaysArr.length; i++){
-        console.log(prevSaysArr[i]);
+        setTimeout(function(){
+          console.log(i + " = i");
+        }, i * 500)
       }
+      let failRunner = 0;
+      let time = 500;
+      //Test Area
+      for(var i = 0; i < prevSaysArr.length; i++) {
+
+                (function() {
+                setTimeout(function() {
+                if(currSaysArr[failRunner] == 0){
+                  greenButton.style.backgroundColor="#23ff27";
+                  soundOne.play();
+                  console.log('green');
+                  setTimeout(function(){greenButton.style.backgroundColor="#028400"}, time);
+                }
+                else if(currSaysArr[failRunner] == 1){
+                  redButton.style.backgroundColor="red";
+                  soundTwo.play();
+                  console.log('red');
+                  setTimeout(function(){redButton.style.backgroundColor="#c10000"}, time);
+                }
+                else if(currSaysArr[failRunner] == 2){
+                  yellowButton.style.backgroundColor="#ffff68";
+                  console.log('yellow');
+                  soundThree.play();
+                  setTimeout(function(){yellowButton.style.backgroundColor="#b5b52b"}, time);
+                }
+                else if(currSaysArr[failRunner] == 3){
+                  blueButton.style.backgroundColor="#609bf7";
+                  soundFour.play();
+                  console.log('blue');
+                  setTimeout(function(){blueButton.style.backgroundColor="#2255a5"}, time);
+                }
+                failRunner++;
+                }, i * 1200);
+              })(i);
+              }
+
+      //TestArea
     }
 
     function playerTurn(num){
