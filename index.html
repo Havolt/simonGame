@@ -348,8 +348,8 @@
         setTimeout(comTurn, 800);
       }
       else{
-        pressCounter = 0;
-        makeSaysList();
+        resetAll();
+        mainGame();
         console.log(totalSaysArr);
       }
     }
@@ -367,6 +367,7 @@
       playerTurnTrue = false;
       playPress = 0;
       time = 600;
+      simonOn = false;
       intervalTime = 1200;
       greenPressed = 0;
       redPressed = 0;
@@ -381,7 +382,7 @@
 
     function comTurn(){
       if(pressRunner > 19){
-        alert('You a winner hagaga');
+        alert('You a winner hahaha');
         simonOn = false;
         resetAll();
         return;
@@ -571,17 +572,28 @@
             blueButton.style.backgroundColor="#609bf7";
             soundFour.play();
             setTimeout(function(){blueButton.style.backgroundColor="#2255a5"}, 400);},1200)
+
         }
         )()
         prevSaysArr = currSaysArr;
-        setTimeout(playFail, 2000);
+        if(!strictBool){
+          setTimeout(playFail, 2000);
+        }
+        else{
+          pressCounter.innerHTML = "--";
+          setTimeout(function(){
+            resetAll();
+            comTurn();
+          }, 2000);
+
+          }
+        }
 
 
 
         setTimeout(function(){console.log('work begins here')},1800)
       }
 
-    }
 
 
 
