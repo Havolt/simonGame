@@ -349,11 +349,44 @@
       }
     }
 
+    function resetAll(){
+      totalSaysArr = [];
+      for(var i = 0; i < 20; i++){
+        const randSay = Math.floor(Math.random()*4);
+        totalSaysArr.push(randSay);
+      }
+      currSaysArr = [];
+      pressCounterNum = 0;
+      pressRunner = 0;
+      buttonRunner = undefined;
+      playerTurnTrue = false;
+      playPress = 0;
+      time = 600;
+      intervalTime = 1200;
+      greenPressed = 0;
+      redPressed = 0;
+      yellowPressed = 0;
+      bluePressed = 0;
+      playerFail = false;
+      prevSaysArr = [];
+      playerSaysArr = [];
+      prevSaysArrBackup = [];
+      pressCounter.innerHTML="--";
+    }
+
     function comTurn(){
+      if(pressRunner > 19){
+        alert('You a winner hagaga');
+        simonOn = false;
+        resetAll();
+        return;
+      }
+
 
       playerTurnTrue = false;
       currSaysArr.push(totalSaysArr[pressRunner]);
       pressRunner++;
+
 
 
       if(pressRunner > 7 && pressRunner < 14){
