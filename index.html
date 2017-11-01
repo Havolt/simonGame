@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Simon Game</title>
+    <link rel="shortcut icon" href="http://www.favicon.cc/logo3d/893479.png"/>
     <link href="https://fonts.googleapis.com/css?family=Cutive+Mono" rel="stylesheet">
     <style>
 
@@ -111,7 +112,6 @@
       cursor: pointer;
     }
 
-
     #centerId{
       width: 300px;
       height: 300px;
@@ -151,11 +151,6 @@
       box-shadow: 1px 1px 1px black;
     }
 
-    #coverAll{
-
-    }
-
-
     </style>
   </head>
   <body>
@@ -163,11 +158,7 @@
     <div id="app"></div>
 
 
-
-
-
     <script>
-
 
 
     const app = document.getElementById('app');
@@ -193,7 +184,6 @@
     function strictMode(){
       strictBool = !strictBool;
     }
-
 
     function strictSwitchChange(){
         resetAll();
@@ -328,8 +318,6 @@
       strictButtText.style.top="2px";
       strictButtText.style.left="-1px";
       strictContain.appendChild(strictButtText);
-
-
     }
 
     //Ending Center Piece Creator
@@ -349,7 +337,6 @@
     let playPress = 0;
     let time = 600;
     let intervalTime = 1200;
-
     let greenPressed = 0;
     let redPressed = 0;
     let yellowPressed = 0;
@@ -496,7 +483,6 @@
           }, 2950);
         })()
 
-
         setTimeout(function(){
           simonOn = false;
           resetAll();
@@ -516,15 +502,9 @@
       stopInputDiv.style.position="fixed";
       centerId.appendChild(stopInputDiv);
 
-
-
-
-
       playerTurnTrue = false;
       currSaysArr.push(totalSaysArr[pressRunner]);
       pressRunner++;
-
-
 
       if(pressRunner > 7 && pressRunner < 14){
         time = 400;
@@ -576,7 +556,6 @@
         })(i);
       }
       setTimeout(function(){centerId.removeChild(stopInputDiv)}, (intervalTime - 180) * (currSaysArr.length));
-//TestArea
       }
 
     function playFail(){
@@ -623,7 +602,6 @@
                 }, i * 1200);
               })(i);
               }
-
     }
 
     function playerTurn(num){
@@ -632,7 +610,6 @@
       let countdown = 0;
       if(num == prevSaysArr[0] ){
         countdown++;
-
         if(num == 0){
           greenButton.style.backgroundColor="#23ff27";
           soundOne.play();
@@ -663,7 +640,6 @@
           pressCounter.innerHTML=pressCounterNum;
           setTimeout(comTurn, 900);
         }
-
       }
       else{
         (function(){
@@ -720,15 +696,8 @@
 
           }
         }
-
-
-
         setTimeout(function(){console.log('work begins here')},1800)
       }
-
-
-
-
 
     //End Simon Make PLayable Functions
 
@@ -746,7 +715,6 @@
     }
 
 
-
     (function init(){
       createButtons();
       createCenter();
@@ -759,10 +727,6 @@
     })();
 
     startButton.addEventListener('click', mainGame);
-
-    console.log(totalSaysArr);
-
-
 
     </script>
 
