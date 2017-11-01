@@ -13,7 +13,6 @@
       background-image: url(https://i.imgur.com/80ADo9e.jpg);
       background-size: cover;
       background-blend-mode: soft-light;
-
     }
 
     #app{
@@ -95,6 +94,23 @@
       border-bottom: 0px;
       background-color: #2255a5;
     }
+
+    #redButton:hover{
+      cursor: pointer;
+    }
+
+    #greenButton:hover{
+      cursor: pointer;
+    }
+
+    #yellowButton:hover{
+      cursor: pointer;
+    }
+
+    #blueButton:hover{
+      cursor: pointer;
+    }
+
 
     #centerId{
       width: 300px;
@@ -392,10 +408,101 @@
 
     function comTurn(){
       if(pressRunner > 19){
-        alert('You a winner hahaha');
-        simonOn = false;
-        resetAll();
-        return;
+        pressCounter.innerHTML="OK";
+        (function(){
+          greenButton.style.backgroundColor="#23ff27";
+          soundOne.play();
+          setTimeout(function(){
+            greenButton.style.backgroundColor="#028400";
+          }, 200);
+          setTimeout(function(){
+            redButton.style.backgroundColor="red";
+            soundTwo.play();
+          }, 250);
+          setTimeout(function(){
+            redButton.style.backgroundColor="#c10000";
+          }, 450);
+          setTimeout(function(){
+            blueButton.style.backgroundColor="#609bf7";
+            soundFour.play();
+          }, 500);
+          setTimeout(function(){
+            blueButton.style.backgroundColor="#2255a5";
+          }, 700);
+          setTimeout(function(){
+            yellowButton.style.backgroundColor="#ffff68";
+            soundThree.play();
+          }, 750);
+          setTimeout(function(){
+            yellowButton.style.backgroundColor="#b5b52b";
+          }, 950);
+
+          setTimeout(function(){
+            greenButton.style.backgroundColor="#23ff27";
+            soundOne.play();
+          }, 1000)
+          setTimeout(function(){
+            greenButton.style.backgroundColor="#028400";
+          }, 1200);
+          setTimeout(function(){
+            redButton.style.backgroundColor="red";
+            soundTwo.play();
+          }, 1250);
+          setTimeout(function(){
+            redButton.style.backgroundColor="#c10000";
+          }, 1450);
+          setTimeout(function(){
+            blueButton.style.backgroundColor="#609bf7";
+            soundFour.play();
+          }, 1500);
+          setTimeout(function(){
+            blueButton.style.backgroundColor="#2255a5";
+          }, 1700);
+          setTimeout(function(){
+            yellowButton.style.backgroundColor="#ffff68";
+            soundThree.play();
+          }, 1750);
+          setTimeout(function(){
+            yellowButton.style.backgroundColor="#b5b52b";
+          }, 1950);
+
+          setTimeout(function(){
+            greenButton.style.backgroundColor="#23ff27";
+            soundOne.play();
+          }, 2000)
+          setTimeout(function(){
+            greenButton.style.backgroundColor="#028400";
+          }, 2200);
+          setTimeout(function(){
+            redButton.style.backgroundColor="red";
+            soundTwo.play();
+          }, 2250);
+          setTimeout(function(){
+            redButton.style.backgroundColor="#c10000";
+          }, 2450);
+          setTimeout(function(){
+            blueButton.style.backgroundColor="#609bf7";
+            soundFour.play();
+          }, 2500);
+          setTimeout(function(){
+            blueButton.style.backgroundColor="#2255a5";
+          }, 2700);
+          setTimeout(function(){
+            yellowButton.style.backgroundColor="#ffff68";
+            soundThree.play();
+          }, 2750);
+          setTimeout(function(){
+            yellowButton.style.backgroundColor="#b5b52b";
+          }, 2950);
+        })()
+
+
+        setTimeout(function(){
+          simonOn = false;
+          resetAll();
+          return;
+        }, 3000);
+
       }
       simonOn = true;
       const stopInputDiv = document.createElement('div');
