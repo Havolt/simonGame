@@ -22,7 +22,7 @@
       border: 10px solid black;
       border-radius: 50%;
       overflow: hidden;
-      position: absolute;
+      position: static;
       margin-left: auto;
       margin-right: auto;
       left: 0;
@@ -75,6 +75,7 @@
       border-left: 0px;
       border-top: 0px;
       background-color: #028400;
+
     }
 
     #redButton{
@@ -402,9 +403,13 @@
       stopInputDiv.style.height="700px";
       stopInputDiv.style.zIndex="4000";
       stopInputDiv.style.left="150px";
+      stopInputDiv.style.top="-100px";
       //stopInputDiv.style.backgroundColor="black";
-      stopInputDiv.style.position="absolute";
-      document.body.appendChild(stopInputDiv);
+      stopInputDiv.style.position="fixed";
+      centerId.appendChild(stopInputDiv);
+
+
+
 
 
       playerTurnTrue = false;
@@ -462,7 +467,8 @@
         }, i * intervalTime);
         })(i);
       }
-      setTimeout(function(){document.body.removeChild(stopInputDiv)}, (intervalTime - 225) * (currSaysArr.length));
+      setTimeout(function(){centerId.removeChild(stopInputDiv)}, (intervalTime - 180) * (currSaysArr.length));
+//TestArea
       }
 
     function playFail(){
@@ -510,7 +516,6 @@
               })(i);
               }
 
-      //TestArea
     }
 
     function playerTurn(num){
