@@ -180,16 +180,17 @@
 
 
     function strictSwitchChange(){
-      if(!strictBool){
-        strictSwitchOn.style.backgroundColor="#5280c9";
-        strictSwitchOff.style.backgroundColor="white";
-        strictBool = !strictBool;
-      }
-      else{
-        strictSwitchOn.style.backgroundColor="white";
-        strictSwitchOff.style.backgroundColor="#5280c9";
-        strictBool = !strictBool;
-      }
+        resetAll();
+        if(!strictBool){
+          strictSwitchOn.style.backgroundColor="#5280c9";
+          strictSwitchOff.style.backgroundColor="white";
+          strictBool = !strictBool;
+        }
+        else{
+          strictSwitchOn.style.backgroundColor="white";
+          strictSwitchOff.style.backgroundColor="#5280c9";
+          strictBool = !strictBool;
+        }
     }
 
     // End of Swtich Section //
@@ -396,7 +397,7 @@
         resetAll();
         return;
       }
-
+      simonOn = true;
       const stopInputDiv = document.createElement('div');
       stopInputDiv.id = "coverAll";
       stopInputDiv.style.width="700px";
