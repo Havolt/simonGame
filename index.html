@@ -22,7 +22,11 @@
       border: 10px solid black;
       border-radius: 50%;
       overflow: hidden;
-      margin: 0 auto;
+      position: absolute;
+      margin-left: auto;
+      margin-right: auto;
+      left: 0;
+      right: 0;
     }
 
     #strictContainer{
@@ -128,6 +132,10 @@
     #startButton:active{
       background-color: #7a0c0c;
       box-shadow: 1px 1px 1px black;
+    }
+
+    #coverAll{
+
     }
 
 
@@ -388,6 +396,16 @@
         return;
       }
 
+      const stopInputDiv = document.createElement('div');
+      stopInputDiv.id = "coverAll";
+      stopInputDiv.style.width="700px";
+      stopInputDiv.style.height="700px";
+      stopInputDiv.style.zIndex="4000";
+      stopInputDiv.style.left="150px";
+      //stopInputDiv.style.backgroundColor="black";
+      stopInputDiv.style.position="absolute";
+      document.body.appendChild(stopInputDiv);
+
 
       playerTurnTrue = false;
       currSaysArr.push(totalSaysArr[pressRunner]);
@@ -444,6 +462,7 @@
         }, i * intervalTime);
         })(i);
       }
+      setTimeout(function(){document.body.removeChild(stopInputDiv)}, (intervalTime - 225) * (currSaysArr.length));
       }
 
     function playFail(){
@@ -610,6 +629,7 @@
       centerPiece = document.getElementById('centerId');
       pressCounter = document.getElementById('pressCounter');
       startButton = document.getElementById('startButton');
+      coverAll = document.getElementById('coverAll');
     }
 
 
